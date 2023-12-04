@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">Money Manager</string>
+        <string name="balance">$ %s</string>
+</resources>

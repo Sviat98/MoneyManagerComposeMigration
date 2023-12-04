@@ -1,0 +1,16 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <style name="Base.Theme.MoneyManager" parent="Theme.Material3.DayNight.NoActionBar">
+        <item name="colorPrimary">@color/buttonColor</item>
+        <item name="colorOnPrimary">@color/mainTextColor</item>
+
+    </style>
+
+    <style name="Theme.MoneyManager" parent="Base.Theme.MoneyManager" />
+
+    <style name="App.Custom.Indicator" parent="Widget.Material3.BottomNavigationView.ActiveIndicator">
+
+        <item name="android:color">@color/navButtonActive</item>
+
+    </style>
+
+</resources>
