@@ -18,16 +18,6 @@ class MainActivity : AppCompatActivity() {
         // Скрыть ActionBar/Toolbar
         supportActionBar?.hide()
 
-        // Установить цвет статус-бара
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
-            window.decorView.windowInsetsController?.setSystemBarsAppearance(
-                View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR, View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR
-            )
-            window.statusBarColor = getColor(R.color.mainBackground)
-        } else if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            window.statusBarColor = getColor(R.color.mainBackground)
-        }
-
         bottomNavigationView = findViewById(R.id.button_navigation)
 
         bottomNavigationView.setOnItemSelectedListener { menuItem ->
