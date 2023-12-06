@@ -41,9 +41,11 @@ class HomeFragment : Fragment() {
 
         val incomeButton: Button = view.findViewById(R.id.incomeButton)
         val expenseButton: Button = view.findViewById(R.id.expenseButton)
+        val clearButton: Button = view.findViewById(R.id.clearButton)
 
         incomeButton.setOnClickListener { showTransactionDialog(true) }
         expenseButton.setOnClickListener { showTransactionDialog(false) }
+        clearButton.setOnClickListener { clearTransactionsAndBalance() }
 
         displayTransactions()
 
@@ -102,7 +104,6 @@ class HomeFragment : Fragment() {
         displayTransactions()
     }
 
-
     private fun displayTransactions() {
         val transactions = sharedPreferences.getString("transactions", "")
         transactionAdapter = TransactionAdapter(transactions?.split("\n").orEmpty())
@@ -135,18 +136,28 @@ class HomeFragment : Fragment() {
                     "Извините, но воздух не считается цифрой",
                     Toast.LENGTH_SHORT
                 ).show()
-            }else if (name.isEmpty()) {
-                    Toast.makeText(
-                        requireContext(),
-                        "Понимаю, мне тоже лень его заполнять",
-                        Toast.LENGTH_SHORT
-                    ).show()
-                } else {
-                    val amount = amountStr.toFloat()
-                    addTransaction(isIncome, amount, name)
-                    alertDialog.dismiss()
-                }
+            } else if (name.isEmpty()) {
+                Toast.makeText(
+                    requireContext(),
+                    "Понимаю, мне тоже лень его заполнять",
+                    Toast.LENGTH_SHORT
+                ).show()
+            } else {
+                val amount = amountStr.toFloat()
+                addTransaction(isIncome, amount, name)
+                alertDialog.dismiss()
             }
-            alertDialog.show()
         }
+        alertDialog.show()
     }
+
+    private fun clearTransactionsAndBalance() {
+        val editor = sharedPreferences.edit()
+        editor.putString("transactions", "")
+        editor.apply()
+
+        saveBalance(0.0f)
+
+        displayTransactions()
+    }
+}

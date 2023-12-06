@@ -1,8 +1,6 @@
 package com.example.moneymanager
 
-import android.os.Build
 import android.os.Bundle
-import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
@@ -23,7 +21,7 @@ class MainActivity : AppCompatActivity() {
         bottomNavigationView.setOnItemSelectedListener { menuItem ->
             val selectedFragment: Fragment = when (menuItem.itemId) {
                 R.id.nav_home -> HomeFragment()
-                R.id.nav_other -> otherFragment()
+                R.id.nav_other -> OtherFragment()
                 R.id.nav_wallet -> WalletFragment()
                 R.id.nav_converter -> ConverterFragment()
                 R.id.nav_setting -> SettingFragment()
