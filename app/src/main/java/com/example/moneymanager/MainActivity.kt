@@ -13,7 +13,6 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        // Скрыть ActionBar/Toolbar
         supportActionBar?.hide()
 
         bottomNavigationView = findViewById(R.id.button_navigation)
@@ -34,7 +33,6 @@ class MainActivity : AppCompatActivity() {
 
         replaceFragment(HomeFragment())
     }
-
     private fun replaceFragment(fragment: Fragment) {
         supportFragmentManager.beginTransaction().replace(R.id.frame_container, fragment).commit()
     }
