@@ -14,13 +14,6 @@ class SettingFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val view = inflater.inflate(R.layout.fragment_setting, container, false)
-
-        val settingButton = view.findViewById<Button>(R.id.settingButton)
-        settingButton.setOnClickListener {
-
-            Toast.makeText(context, "В реализации", Toast.LENGTH_SHORT).show()
-        }
-        return view
+        return inflater.inflate(R.layout.fragment_setting, container, false)
     }
 }

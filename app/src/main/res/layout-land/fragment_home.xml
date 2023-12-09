@@ -17,7 +17,7 @@
         android:layout_marginStart="145dp"
         android:layout_marginTop="2dp"
         android:layout_marginEnd="450dp"
-        android:text="Your Correct Balance:"
+        android:text="Актуальный баланс:"
         android:textColor="@color/mainTextColor" />
 
     <TextView

@@ -5,27 +5,27 @@
     <item
         android:id="@+id/nav_home"
         android:icon="@drawable/home"
-        android:title="Home"/>
+        android:title="Главная"/>
 
     <item
         android:id="@+id/nav_other"
         android:icon="@drawable/other"
-        android:title="Other"/>
+        android:title="Другое"/>
 
     <item
         android:id="@+id/nav_wallet"
         android:icon="@drawable/wallet"
-        android:title="Wallet"/>
+        android:title="Кошельки"/>
 
     <item
         android:id="@+id/nav_converter"
         android:icon="@drawable/converter"
-        android:title="Converter"/>
+        android:title="Конвертер"/>
 
     <item
         android:id="@+id/nav_setting"
         android:icon="@drawable/setting"
-        android:title="Setting"/>
+        android:title="Настройки"/>
 
 
 </menu>

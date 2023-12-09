@@ -10,7 +10,7 @@
         android:id="@+id/amountEditText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Сумма ващей транзакции"
+        android:hint="Сумма вашей транзакции"
         android:inputType="numberDecimal"
         android:textColor="@color/mainTextColor"
         android:layout_marginBottom="8dp"/>
@@ -20,7 +20,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textColor="@color/mainTextColor"
-        android:hint="Название ващей транзакции"
+        android:hint="Название вашей транзакции"
         android:layout_marginBottom="16dp"/>
 
     <Button

@@ -11,7 +11,7 @@
         android:id="@+id/balanceText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Your Correct Balance:"
+        android:text="Актуальный баланс:"
         android:textColor="@color/mainTextColor"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="5dp"/>

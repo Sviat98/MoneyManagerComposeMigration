@@ -14,13 +14,6 @@ class OtherFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val view = inflater.inflate(R.layout.fragment_other, container, false)
-
-        val otherButton = view.findViewById<Button>(R.id.otherButton)
-        otherButton.setOnClickListener {
-
-            Toast.makeText(context, "В реализации", Toast.LENGTH_SHORT).show()
-        }
-        return view
+        return inflater.inflate(R.layout.fragment_other, container, false)
     }
 }

@@ -14,13 +14,6 @@ class WalletFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val view = inflater.inflate(R.layout.fragment_wallet, container, false)
-
-        val walletButton = view.findViewById<Button>(R.id.walletButton)
-        walletButton.setOnClickListener {
-
-            Toast.makeText(context, "В реализации", Toast.LENGTH_SHORT).show()
-        }
-        return view
+        return inflater.inflate(R.layout.fragment_wallet, container, false)
     }
 }

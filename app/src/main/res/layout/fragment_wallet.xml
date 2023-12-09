@@ -15,14 +15,4 @@
         android:textColor="@color/blue"
         android:textSize="30sp" />
 
-    <Button
-        android:id="@+id/walletButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginStart="111dp"
-        android:layout_marginBottom="175dp"
-        android:text="Очень важная кнопка" />
-
 </RelativeLayout>

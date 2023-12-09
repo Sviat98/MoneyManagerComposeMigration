@@ -1,5 +1,6 @@
 package com.example.moneymanager
 
+import android.annotation.SuppressLint
 import android.app.AlertDialog
 import android.content.Context
 import android.content.SharedPreferences
@@ -52,6 +53,7 @@ class HomeFragment : Fragment() {
         return view
     }
 
+    @SuppressLint("StringFormatMatches")
     private fun updateBalance() {
         val balance = sharedPreferences.getFloat("balance", 0.0f)
         balanceTextView.text = getString(R.string.balance, balance)
