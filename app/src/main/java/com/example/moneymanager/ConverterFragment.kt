@@ -10,6 +10,7 @@ import android.view.ViewGroup
 import android.widget.*
 import androidx.fragment.app.Fragment
 import java.text.DecimalFormat
+import java.text.DecimalFormatSymbols
 
 class ConverterFragment : Fragment() {
 
@@ -18,7 +19,14 @@ class ConverterFragment : Fragment() {
     private lateinit var convertButton: Button
     private lateinit var resultTextView: TextView
 
-    private val decimalFormat = DecimalFormat("#,##0.00")
+    private val decimalFormat: DecimalFormat
+
+    init {
+        val symbols = DecimalFormatSymbols().apply {
+            decimalSeparator = '.'
+        }
+        decimalFormat = DecimalFormat("###,##0.00", symbols)
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -48,6 +56,7 @@ class ConverterFragment : Fragment() {
         resultTextView.setOnClickListener {
             val convertedAmount = resultTextView.text.toString()
             copyToClipboard(convertedAmount)
+            showToast("Результат скопирован в буфер обмена")
         }
     }
 
@@ -78,10 +87,6 @@ class ConverterFragment : Fragment() {
     }
 
     private fun copyToClipboard(text: String) {
-        if (text.isEmpty()){
-            showToast("Заполните сумму и курс валюты")
-            return
-        }
         val clipboard = requireContext().getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager
         val clip = ClipData.newPlainText("converted_amount", text)
         clipboard.setPrimaryClip(clip)
