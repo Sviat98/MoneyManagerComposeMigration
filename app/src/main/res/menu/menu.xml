@@ -8,11 +8,6 @@
         android:title="Главная"/>
 
     <item
-        android:id="@+id/nav_other"
-        android:icon="@drawable/other"
-        android:title="Другое"/>
-
-    <item
         android:id="@+id/nav_wallet"
         android:icon="@drawable/wallet"
         android:title="Кошельки"/>

@@ -20,7 +20,6 @@ class MainActivity : AppCompatActivity() {
         bottomNavigationView.setOnItemSelectedListener { menuItem ->
             val selectedFragment: Fragment = when (menuItem.itemId) {
                 R.id.nav_home -> HomeFragment()
-                R.id.nav_other -> OtherFragment()
                 R.id.nav_wallet -> WalletFragment()
                 R.id.nav_converter -> ConverterFragment()
                 R.id.nav_setting -> SettingFragment()
