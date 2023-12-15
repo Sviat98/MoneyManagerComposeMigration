@@ -14,11 +14,11 @@ import java.text.DecimalFormatSymbols
 
 class ConverterFragment : Fragment() {
 
+    // Переменные так или иначе использующиеся здесь
     private lateinit var amountEditText: EditText
     private lateinit var exchangeRateEditText: EditText
     private lateinit var convertButton: Button
     private lateinit var resultTextView: TextView
-
     private val decimalFormat: DecimalFormat
 
     init {
@@ -33,6 +33,7 @@ class ConverterFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         val view = inflater.inflate(R.layout.fragment_converter, container, false)
+        // Инсализация View и слушатели
         initializeViews(view)
         setupClickListener()
         setupResultTextViewClickListener()
@@ -61,31 +62,35 @@ class ConverterFragment : Fragment() {
     }
 
     private fun handleConversion() {
+
         val amountStr = amountEditText.text.toString()
         val rateStr = exchangeRateEditText.text.toString()
 
+        // error handling
         if (amountStr.isEmpty() || rateStr.isEmpty()) {
             showToast("Заполните сумму и курс валюты")
             return
         }
 
+        // String to Double
         val amount = amountStr.toDouble()
         val rate = rateStr.toDouble()
-        val convertedAmount = convert(amount, rate)
+        val convertedAmount = convert(amount, rate) //calculate amount
 
         displayResult(convertedAmount)
     }
 
     private fun convert(amount: Double, rate: Double): Double {
-        return amount * rate
+        return amount * rate //calculate amount
     }
 
     private fun displayResult(convertedAmount: Double) {
+        // Amount TextView
         val formattedConvertedAmount = decimalFormat.format(convertedAmount)
-
         resultTextView.text = formattedConvertedAmount
     }
 
+    //ClipBoard
     private fun copyToClipboard(text: String) {
         val clipboard = requireContext().getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager
         val clip = ClipData.newPlainText("converted_amount", text)
