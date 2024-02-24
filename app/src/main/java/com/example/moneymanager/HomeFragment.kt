@@ -12,9 +12,12 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
+import androidx.compose.ui.platform.ComposeView
+import androidx.compose.ui.platform.ViewCompositionStrategy
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.moneymanager.compose.HomeScreen
 import java.text.SimpleDateFormat
 import java.util.Date
 import java.util.Locale
@@ -32,34 +35,16 @@ class HomeFragment : Fragment() {
 
     // Переопределение метода для создания и настройки пользовательского интерфейса фрагмента.
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
+        inflater: LayoutInflater,
+        container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        // Надувание макета фрагмента из XML-файла.
-        val view = inflater.inflate(R.layout.fragment_home, container, false)
-
-        // Инициализация переменных и установка менеджера компоновки для RecyclerView.
-        sharedPreferences = requireActivity().getPreferences(Context.MODE_PRIVATE)
-        balanceTextView = view.findViewById(R.id.balanceTextView)
-        transactionsRecyclerView = view.findViewById(R.id.transactionsRecyclerView)
-        transactionsRecyclerView.layoutManager = LinearLayoutManager(requireContext())
-
-        // Обновление отображаемого баланса.
-        updateBalance()
-
-        // Инициализация кнопок и установка слушателей событий.
-        val incomeButton: Button = view.findViewById(R.id.incomeButton)
-        val expenseButton: Button = view.findViewById(R.id.expenseButton)
-        val clearButton: Button = view.findViewById(R.id.clearButton)
-
-        incomeButton.setOnClickListener { showTransactionDialog(true) }
-        expenseButton.setOnClickListener { showTransactionDialog(false) }
-        clearButton.setOnClickListener { clearTransactionsAndBalance() }
-
-        // Отображение списка транзакций.
-        displayTransactions()
-
-        return view
+    ): View {
+        return ComposeView(requireContext()).apply {
+            setViewCompositionStrategy(ViewCompositionStrategy.DisposeOnViewTreeLifecycleDestroyed)
+            setContent {
+                HomeScreen()
+            }
+        }
     }
 
     // Обновление отображаемого баланса.
